@@ -3,7 +3,7 @@
   margin-left: auto;
   margin-right: auto;
   width: 90%;
-  height: 400px;
+  height: 100px;
   padding: 10px;
   border: 2px solid red;
   display: grid;
@@ -30,4 +30,8 @@
 .ES6 {
   grid-area: ES6;
   border: 1px solid black;
+}
+
+.presentation {
+  text-align: center;
 }
