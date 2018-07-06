@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import ReactKB from "./containers/react";
-import NodeJS from "./containers/node";
-import ES6 from "./containers/es6";
-import Style from "./containers/style";
+import ReactKB from "./containers/react/react";
+import NodeJS from "./containers/node/node";
+import ES6 from "./containers/es6/es6";
+import Style from "./containers/style/style";
 import { Route, NavLink } from "react-router-dom";
 
 import './App.css';
@@ -20,10 +20,10 @@ class App extends Component {
       </div>
       
       <div className="presentation">
-      <Route path="/react" component={ReactKB}/>
-      <Route path="/node" component={NodeJS}/>
-      <Route path="/es6" component={ES6}/>
-      <Route path="/style" component={Style}/>
+        <Route path="/react" component={ReactKB}/>
+        <Route path="/node" component={NodeJS}/>
+        <Route path="/es6" component={ES6}/>
+        <Route path="/style" component={Style}/>
       </div>
       
       </div>

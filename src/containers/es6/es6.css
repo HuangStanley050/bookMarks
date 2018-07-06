@@ -1,0 +1,11 @@
+.ES6_Container {
+    margin-top: 5px;
+    border: 1px solid blue;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-gap: 5px;
+}
+
+input:focus {
+    outline: 0;
+}
