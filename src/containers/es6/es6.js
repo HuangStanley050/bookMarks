@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { addCategory } from "../../store/actions/es6";
+import Categories from "../../components/categories";
 import "./es6.css";
 
 class ES6 extends Component {
@@ -10,6 +11,7 @@ class ES6 extends Component {
 
     addCategory = () => {
         this.props.addCategory(this.state.input);
+        this.setState({ input: "" });
     }
 
     handleInput = (event) => {
@@ -17,16 +19,18 @@ class ES6 extends Component {
     }
 
 
+
+
     render() {
         return (
             <div>
              <h1>ES6 Section</h1>
-             <input onChange={this.handleInput} type="text" placeholder="category to add.."/>
+             <input onChange={this.handleInput} value={this.state.input} type="text" placeholder="category to add.."/>
              <button onClick={()=>this.addCategory()}>Add Category</button>
             <div className="ES6_Container">
              
              {this.props.categories.map(key=>{
-                 return <h3>{key}</h3>;
+                 return <Categories key={key.name} category={key.name}/>;
              })}
              
             </div>
@@ -36,7 +40,7 @@ class ES6 extends Component {
 }
 const mapStateToProps = state => {
     return {
-        categories: state.category
+        categories: state.es6_category
     };
 };
 

@@ -1,15 +1,24 @@
+import * as actionTypes from "../actions/actionTypes";
+
 const initialState = {
-    category: []
+    es6_category: []
 
 };
 
 const reducer = (state = initialState, action) => {
-    if (action.type === "ADD_CATEGORY") {
-        const temp_array = [];
-        temp_array.push(action.name);
+    if (action.type === actionTypes.ADD_CATEGORY) {
+        const es6 = {
+            name: "",
+            hyperlinks: []
+        };
+
+        es6.name = action.name;
+        //const temp_array = [];
+        //temp_array.push(action.name);
+
         return {
             ...state,
-            category: state.category.concat(temp_array)
+            es6_category: state.es6_category.concat(es6)
         };
 
     }
@@ -17,3 +26,10 @@ const reducer = (state = initialState, action) => {
 };
 
 export default reducer;
+
+/*
+{
+    category:"",
+    hyperlinks:[]
+}
+*/

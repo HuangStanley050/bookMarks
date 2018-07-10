@@ -13,10 +13,10 @@ class App extends Component {
       <div>
       
       <div className="AppContainer">
-        <nav className="React"><NavLink to="/react">React</NavLink></nav>
-        <nav className="CSS"><NavLink to="/style">HTML/CSS</NavLink></nav>
-        <nav className="Node"><NavLink to="/node">Node</NavLink></nav>
-        <nav className="ES6"><NavLink to="/es6">ES6</NavLink></nav>
+        <nav className="React"><NavLink style={{ textDecoration: 'none' }} to="/react">React</NavLink></nav>
+        <nav className="CSS"><NavLink style={{ textDecoration: 'none' }} to="/style">HTML/CSS</NavLink></nav>
+        <nav className="Node"><NavLink style={{ textDecoration: 'none' }} to="/node">Node</NavLink></nav>
+        <nav className="ES6"><NavLink style={{ textDecoration: 'none' }} to="/es6">ES6</NavLink></nav>
       </div>
       
       <div className="presentation">
