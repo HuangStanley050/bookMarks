@@ -15,6 +15,7 @@ class Categories extends Component {
     addSubCategory = () => {
         alert(this.props.category);
         this.props.addSub(this.state.input, this.props.category);
+        this.setState({ input: "" })
     }
 
     render() {

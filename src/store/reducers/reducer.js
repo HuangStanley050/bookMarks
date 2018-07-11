@@ -2,10 +2,10 @@ import * as actionTypes from "../actions/actionTypes";
 
 const initialState = {
     es6_category: []
-
 };
 
 const reducer = (state = initialState, action) => {
+
     if (action.type === actionTypes.ADD_CATEGORY) {
         const es6 = {
             name: "",
@@ -18,12 +18,36 @@ const reducer = (state = initialState, action) => {
 
         return {
             ...state,
-            es6_category: state.es6_category.concat(es6)
+            es6_category: [...state.es6_category, es6]
         };
+    }
 
+    else if (action.type === actionTypes.ADD_SUBCATEGORY) {
+
+        let newState = [];
+
+        newState = state.es6_category.map(key => {
+            if (key.name !== action.category) {
+                return key;
+            }
+            else {
+                return {
+                    ...key,
+                    hyperlinks: [...key.hyperlinks, action.link]
+                };
+            }
+        });
+
+
+        return {
+            ...state,
+            es6_category: newState
+        }
     }
     return state;
 };
+
+
 
 export default reducer;
 
