@@ -1,2 +1,3 @@
 export const ADD_CATEGORY = "ADD_CATEGORY";
 export const ADD_SUBCATEGORY = "ADD_SUBCATEGORY";
+export const TOGGLE_MODAL = "TOGGLE_MODAL";

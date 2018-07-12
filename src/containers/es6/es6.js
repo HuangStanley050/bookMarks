@@ -8,8 +8,8 @@ import Modal from "../../components/modal/modal";
 
 class ES6 extends Component {
     state = {
-        input: "",
-        showModal: true
+        input: ""
+
     }
 
     addCategory = () => {
@@ -27,7 +27,7 @@ class ES6 extends Component {
     render() {
         return (
             <div>
-             {this.state.showModal?<Modal/>:null}
+             
              <h1>ES6 Section</h1>
              <input onChange={this.handleInput} value={this.state.input} type="text" placeholder="category to add.."/>
              <button onClick={()=>this.addCategory()}>Add Category</button>
