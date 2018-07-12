@@ -7,15 +7,24 @@ const Modal = (props) => {
     return (
         <div className="Modal">
          <button onClick={props.toggle}>Close Modal</button>
+           <div className="Content">
+             <h1>{props.currentCategory}</h1>
+           </div>
         
             </div>
     );
 }
 
-const mapDispatchToProps = dispatch => {
+const mapStateToProps = state => {
     return {
-        toggle: () => dispatch(toggle())
+        currentCategory: state.currentCategory
     };
 };
 
-export default connect(null, mapDispatchToProps)(Modal);
+const mapDispatchToProps = dispatch => {
+    return {
+        toggle: () => dispatch(toggle(null))
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Modal);

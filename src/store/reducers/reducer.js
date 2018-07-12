@@ -2,7 +2,8 @@ import * as actionTypes from "../actions/actionTypes";
 
 const initialState = {
     es6_category: [],
-    showModal: false
+    showModal: false,
+    currentCategory: ""
 };
 
 const reducer = (state = initialState, action) => {
@@ -48,7 +49,8 @@ const reducer = (state = initialState, action) => {
     else if (action.type === actionTypes.TOGGLE_MODAL) {
         return {
             ...state,
-            showModal: !state.showModal
+            showModal: !state.showModal,
+            currentCategory: action.payload
         }
     }
     return state;

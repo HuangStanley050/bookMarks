@@ -5,7 +5,8 @@ import ES6 from "./containers/es6/es6";
 import Style from "./containers/style/style";
 import Modal from "./components/modal/modal";
 import { connect } from "react-redux";
-import { Route, NavLink } from "react-router-dom";
+import { Route, NavLink, withRouter } from "react-router-dom";
+
 
 import './App.css';
 
@@ -39,4 +40,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(App);
+export default withRouter(connect(mapStateToProps)(App));

@@ -4,7 +4,7 @@
     z-index: 1;
 
     width: 100%;
-    height: 600px;
+    height: 100%;
     left: 0;
     top: 0;
     background-color: #688ecc
@@ -15,4 +15,16 @@
     position: absolute;
     right: 0;
     top: 0;
+}
+
+.Content {
+    margin: 20px auto;
+    width: 90%;
+    height: 40%;
+    background-color: #fff;
+    text-align: center;
+}
+
+.Content a {
+    display: block;
 }

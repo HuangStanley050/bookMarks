@@ -27,7 +27,7 @@ class Categories extends Component {
             <h3>{this.props.category}</h3>
             <input onChange={this.handleInput} value={this.state.input} type="text" placeholder="links to add.."/>
             <button onClick={this.addSubCategory}>Add Link</button>
-            <button onClick={this.props.showLinks}>Show Links</button>
+            <button onClick={()=>this.props.showLinks(this.props.category)}>Show Links</button>
         
         </div>
         );
@@ -43,7 +43,7 @@ class Categories extends Component {
 const mapDispatchToProps = dispatch => {
     return {
         addSub: (link, category) => dispatch(addSubCategory(link, category)),
-        showLinks: () => dispatch(toggle())
+        showLinks: (category) => dispatch(toggle(category))
     };
 };
 
