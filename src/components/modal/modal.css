@@ -20,11 +20,15 @@
 .Content {
     margin: 20px auto;
     width: 90%;
-    height: 40%;
+    /*height: 40%;*/
     background-color: #fff;
     text-align: center;
 }
 
 .Content a {
     display: block;
+}
+
+.Content li {
+    list-style: none;
 }
