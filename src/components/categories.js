@@ -14,8 +14,11 @@ class Categories extends Component {
     }
 
     addSubCategory = () => {
-        //alert(this.props.category);
-        this.props.addSub(this.state.input, this.props.category);
+        //alert(this.props.category);           //needs to find out which action creator to use depends on topic
+        /*if (this.props.topic === 'react') {
+            alert("react!!");
+        }*/
+        this.props.addSub(this.state.input, this.props.category, this.props.topic);
         this.setState({ input: "" });
     }
 
@@ -42,7 +45,7 @@ class Categories extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        addSub: (link, category) => dispatch(addSubCategory(link, category)),
+        addSub: (link, category, topic) => dispatch(addSubCategory(link, category, topic)),
         showLinks: (category) => dispatch(toggle(category))
     };
 };

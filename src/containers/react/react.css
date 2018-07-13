@@ -1,0 +1,9 @@
+.React_Container {
+    margin-top: 5px;
+    border: 1px solid blue;
+
+    display: grid;
+    padding: 10px;
+    grid-template-columns: 33% 33% 33%;
+    grid-gap: 5px;
+}
