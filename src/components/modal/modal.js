@@ -5,13 +5,26 @@ import "./modal.css";
 
 const Modal = (props) => {
     let bookmarks = [];
-    for (let key of props.section) {
-        if (key.name === props.currentCategory) {
-            //console.log(key.name);
-            bookmarks = key.hyperlinks.slice();
+
+    if (props.currentTopic === "es6") {
+        for (let key of props.sectionES6) {
+            if (key.name === props.currentCategory) {
+                //console.log(key.name);
+                bookmarks = key.hyperlinks.slice();
+            }
+            //console.log(key);
         }
-        //console.log(key);
     }
+    else if (props.currentTopic === "react") {
+        for (let key of props.sectionREACT) {
+            if (key.name === props.currentCategory) {
+                //console.log(key.name);
+                bookmarks = key.hyperlinks.slice();
+            }
+            //console.log(key);
+        }
+    }
+
     //console.log(bookmarks);
     bookmarks = bookmarks.map(link => {
         return <li><a href={link}>{link}</a></li>;
@@ -31,7 +44,9 @@ const Modal = (props) => {
 const mapStateToProps = state => {
     return {
         currentCategory: state.currentCategory,
-        section: state.es6_category
+        currentTopic: state.topic,
+        sectionES6: state.es6_category,
+        sectionREACT: state.react_category
     };
 };
 

@@ -34,7 +34,7 @@ class ES6 extends Component {
             <div className="ES6_Container">
              
              {this.props.categories.map(key=>{
-                 return <Categories topic="react" key={key.name} category={key.name}/>;
+                 return <Categories topic="es6" key={key.name} category={key.name}/>;
              })}
              
             </div>

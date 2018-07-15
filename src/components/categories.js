@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
-import { addSubCategory } from "../store/actions/es6";
+import { addSubCategory } from "../store/actions/addsubcategory";
 import { toggle } from "../store/actions/toggle";
 import "./categories.css";
 
@@ -30,7 +30,7 @@ class Categories extends Component {
             <h3>{this.props.category}</h3>
             <input onChange={this.handleInput} value={this.state.input} type="text" placeholder="links to add.."/>
             <button onClick={this.addSubCategory}>Add Link</button>
-            <button onClick={()=>this.props.showLinks(this.props.category)}>Show Links</button>
+            <button onClick={()=>this.props.showLinks(this.props.category,this.props.topic)}>Show Links</button>
         
         </div>
         );
@@ -46,7 +46,7 @@ class Categories extends Component {
 const mapDispatchToProps = dispatch => {
     return {
         addSub: (link, category, topic) => dispatch(addSubCategory(link, category, topic)),
-        showLinks: (category) => dispatch(toggle(category))
+        showLinks: (category, topic) => dispatch(toggle(category, topic))
     };
 };
 
