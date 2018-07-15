@@ -12,7 +12,7 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
 
-    if (action.type === actionTypes.ADD_CATEGORY_ES6) {
+    if (action.type === actionTypes.ADD_CATEGORY && action.topic === "es6") {
         const es6 = {
             name: "",
             hyperlinks: []
@@ -24,7 +24,7 @@ const reducer = (state = initialState, action) => {
             es6_category: [...state.es6_category, es6]
         };
     }
-    else if (action.type === actionTypes.ADD_CATEGORY_REACT) {
+    else if (action.type === actionTypes.ADD_CATEGORY && action.topic === "react") {
         const react = {
             name: "",
             hyperlinks: []

@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 
 import { connect } from 'react-redux';
-import { addCategory } from "../../store/actions/es6";
+import { addCategory } from "../../store/actions/addcategory";
 import Categories from "../../components/categories";
 import "./es6.css";
-import Modal from "../../components/modal/modal";
+
 
 class ES6 extends Component {
     state = {
@@ -13,7 +13,7 @@ class ES6 extends Component {
     }
 
     addCategory = () => {
-        this.props.addCategory(this.state.input);
+        this.props.addCategory(this.state.input, "es6");
         this.setState({ input: "" });
     }
 
@@ -50,7 +50,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        addCategory: (name) => dispatch(addCategory(name))
+        addCategory: (name, topic) => dispatch(addCategory(name, topic))
     };
 }
 

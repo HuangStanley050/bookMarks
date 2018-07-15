@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
-import { addCategory } from "../../store/actions/react";
+import { addCategory } from "../../store/actions/addcategory";
 import Categories from "../../components/categories";
 import "./react.css";
 //import Modal from "../../components/modal/modal";
@@ -16,7 +16,7 @@ class ReactKB extends Component {
     }
 
     addCategory = () => {
-        this.props.addCategory(this.state.input);
+        this.props.addCategory(this.state.input, "react");
         this.setState({ input: "" });
     }
 
@@ -45,7 +45,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        addCategory: (name) => dispatch(addCategory(name))
+        addCategory: (name, topic) => dispatch(addCategory(name, topic))
     };
 }
 
