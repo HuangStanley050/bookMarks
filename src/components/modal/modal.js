@@ -24,6 +24,24 @@ const Modal = (props) => {
             //console.log(key);
         }
     }
+    else if (props.currentTopic === "node") {
+        for (let key of props.sectionNODE) {
+            if (key.name === props.currentCategory) {
+                //console.log(key.name);
+                bookmarks = key.hyperlinks.slice();
+            }
+            //console.log(key);
+        }
+    }
+    else if (props.currentTopic === "style") {
+        for (let key of props.sectionSTYLE) {
+            if (key.name === props.currentCategory) {
+                //console.log(key.name);
+                bookmarks = key.hyperlinks.slice();
+            }
+            //console.log(key);
+        }
+    }
 
     //console.log(bookmarks);
     bookmarks = bookmarks.map(link => {
@@ -46,7 +64,9 @@ const mapStateToProps = state => {
         currentCategory: state.currentCategory,
         currentTopic: state.topic,
         sectionES6: state.es6_category,
-        sectionREACT: state.react_category
+        sectionREACT: state.react_category,
+        sectionNODE: state.node_category,
+        sectionSTYLE: state.style_category
     };
 };
 

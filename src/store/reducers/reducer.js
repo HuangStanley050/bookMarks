@@ -35,7 +35,28 @@ const reducer = (state = initialState, action) => {
             react_category: [...state.react_category, react]
         };
     }
-
+    else if (action.type === actionTypes.ADD_CATEGORY && action.topic === "node") {
+        const node = {
+            name: "",
+            hyperlinks: []
+        };
+        node.name = action.name;
+        return {
+            ...state,
+            node_category: [...state.node_category, node]
+        };
+    }
+    else if (action.type === actionTypes.ADD_CATEGORY && action.topic === "style") {
+        const style = {
+            name: "",
+            hyperlinks: []
+        };
+        style.name = action.name;
+        return {
+            ...state,
+            style_category: [...state.style_category, style]
+        };
+    }
     else if (action.type === actionTypes.ADD_SUBCATEGORY) {
 
         let newState = [];
@@ -52,14 +73,11 @@ const reducer = (state = initialState, action) => {
                     };
                 }
             });
-
-
             return {
                 ...state,
                 es6_category: newState
             };
         }
-
         else if (action.topic === "react") { //if topic is react then go to the react_category in the reducer
             newState = state.react_category.map(key => {
                 if (key.name !== action.category) {
@@ -72,15 +90,46 @@ const reducer = (state = initialState, action) => {
                     };
                 }
             });
-
-
             return {
                 ...state,
                 react_category: newState
             };
         }
+        else if (action.topic === "node") { //if topic is node then go to the node_category in the reducer
+            newState = state.node_category.map(key => {
+                if (key.name !== action.category) {
+                    return key;
+                }
+                else {
+                    return {
+                        ...key,
+                        hyperlinks: [...key.hyperlinks, action.link]
+                    };
+                }
+            });
+            return {
+                ...state,
+                node_category: newState
+            };
+        }
+        else if (action.topic === "style") { //if topic is node then go to the node_category in the reducer
+            newState = state.style_category.map(key => {
+                if (key.name !== action.category) {
+                    return key;
+                }
+                else {
+                    return {
+                        ...key,
+                        hyperlinks: [...key.hyperlinks, action.link]
+                    };
+                }
+            });
+            return {
+                ...state,
+                style_category: newState
+            };
+        }
     }
-
     else if (action.type === actionTypes.TOGGLE_MODAL) {
         return {
             ...state,
