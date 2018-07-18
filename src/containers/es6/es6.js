@@ -13,10 +13,10 @@ class ES6 extends Component {
     }
 
     addCategory = () => {
-        /*axios.post("/test.json", { test: 1, test2: 2 })
-            .then(response => console.log(response))
+        axios.post(`/es6/${this.state.input}/hyperlink.json`, { link: "www.boom.com" })
+            .then(response => console.log(response.data))
             .catch(error => console.log(error));
-        */
+
         this.props.addCategory(this.state.input, "es6");
         this.setState({ input: "" });
     }
