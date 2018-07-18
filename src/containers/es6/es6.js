@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import axios from "../../axios-add_category";
 import { connect } from 'react-redux';
 import { addCategory } from "../../store/actions/addcategory";
 import Categories from "../../components/categories";
@@ -13,6 +13,10 @@ class ES6 extends Component {
     }
 
     addCategory = () => {
+        /*axios.post("/test.json", { test: 1, test2: 2 })
+            .then(response => console.log(response))
+            .catch(error => console.log(error));
+        */
         this.props.addCategory(this.state.input, "es6");
         this.setState({ input: "" });
     }
