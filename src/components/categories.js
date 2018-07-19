@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { addSubCategory } from "../store/actions/addsubcategory";
+import { savesubcategory } from "../store/actions/savesubcategory";
 import { toggle } from "../store/actions/toggle";
 import "./categories.css";
 
@@ -18,6 +19,7 @@ class Categories extends Component {
         /*if (this.props.topic === 'react') {
             alert("react!!");
         }*/
+        this.props.saveSub(this.state.input, this.props.category, this.props.topic)
         this.props.addSub(this.state.input, this.props.category, this.props.topic);
         this.setState({ input: "" });
     }
@@ -46,7 +48,8 @@ class Categories extends Component {
 const mapDispatchToProps = dispatch => {
     return {
         addSub: (link, category, topic) => dispatch(addSubCategory(link, category, topic)),
-        showLinks: (category, topic) => dispatch(toggle(category, topic))
+        showLinks: (category, topic) => dispatch(toggle(category, topic)),
+        saveSub: (link, category, topic) => dispatch(savesubcategory(link, category, topic))
     };
 };
 

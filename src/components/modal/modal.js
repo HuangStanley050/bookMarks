@@ -45,7 +45,7 @@ const Modal = (props) => {
 
     //console.log(bookmarks);
     bookmarks = bookmarks.map(link => {
-        return <li><a href={link}>{link}</a></li>;
+        return <li key={link.name}><a href={link}>{link}</a></li>;
     });
     return (
         <div className="Modal">
