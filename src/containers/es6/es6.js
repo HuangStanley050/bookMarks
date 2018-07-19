@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "../../axios-add_category";
 import { connect } from 'react-redux';
 import { addCategory } from "../../store/actions/addcategory";
+import { savecategory } from "../../store/actions/savecategory";
 import Categories from "../../components/categories";
 import "./es6.css";
 
@@ -13,10 +14,11 @@ class ES6 extends Component {
     }
 
     addCategory = () => {
-        axios.post(`/es6/${this.state.input}/hyperlink.json`, { link: "www.boom.com" })
+        /*axios.post(`/es6/${this.state.input}/hyperlink.json`, { link: "www.boom.com" })
             .then(response => console.log(response.data))
             .catch(error => console.log(error));
-
+            */
+        this.props.save(this.state.input, "es6");
         this.props.addCategory(this.state.input, "es6");
         this.setState({ input: "" });
     }
@@ -54,7 +56,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        addCategory: (name, topic) => dispatch(addCategory(name, topic))
+        addCategory: (name, topic) => dispatch(addCategory(name, topic)),
+        save: (name, topic) => dispatch(savecategory(name, topic))
     };
 }
 
