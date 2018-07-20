@@ -2,6 +2,7 @@ import React, { Component } from "react";
 //import axios from "../../axios-add_category";
 import { connect } from 'react-redux';
 import { addCategory } from "../../store/actions/addcategory";
+import { fetchFail, fetchbookmarks } from "../../store/actions/fetchbookmarks";
 //import { savecategory } from "../../store/actions/savecategory";
 import Categories from "../../components/categories";
 import "./es6.css";
@@ -27,7 +28,9 @@ class ES6 extends Component {
         this.setState({ input: event.target.value });
     }
 
-
+    componentDidMount() {
+        this.props.fetchbookmarks();
+    }
 
 
     render() {
@@ -56,7 +59,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        addCategory: (name, topic) => dispatch(addCategory(name, topic))
+        addCategory: (name, topic) => dispatch(addCategory(name, topic)),
+        fetchbookmarks: () => dispatch(fetchbookmarks())
         //save: (name, topic) => dispatch(savecategory(name, topic)) //async function to save to firebase
     };
 }
