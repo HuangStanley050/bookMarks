@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ES6 Component testing should render one ES6 component 1`] = `undefined`;

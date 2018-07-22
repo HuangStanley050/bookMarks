@@ -2,7 +2,7 @@ import React, { Component } from "react";
 //import axios from "../../axios-add_category";
 import { connect } from 'react-redux';
 import { addCategory } from "../../store/actions/addcategory";
-import { fetchFail, fetchbookmarks } from "../../store/actions/fetchbookmarks";
+import { fetchbookmarks } from "../../store/actions/fetchbookmarks";
 //import { savecategory } from "../../store/actions/savecategory";
 import Categories from "../../components/categories";
 import "./es6.css";

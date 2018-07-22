@@ -7,7 +7,8 @@ const initialState = {
     react_category: [],
     showModal: false,
     topic: "",
-    currentCategory: ""
+    currentCategory: "",
+    test: null
 };
 
 const reducer = (state = initialState, action) => {
@@ -136,7 +137,47 @@ const reducer = (state = initialState, action) => {
             showModal: !state.showModal,
             currentCategory: action.payload,
             topic: action.topic
+        };
+    }
+    else if (action.type === actionTypes.FETCH_SUCCESS) {
+        let temp = action.data;
+        let subCat_array = [];
+        //this is for one subcategory, the name and the hyperlinks.
+
+        /*let subCat_obj = {
+            name: null,
+            hyperlinks: []
+        };
+        for (let index in temp.link) {
+            console.log(temp.link[index].link);
+            subCat_obj.hyperlinks.push(temp.link[index].link);
         }
+        */
+
+        let test_obj = {
+            name: null,
+            hyperlinks: []
+        }
+        //double loop in drill deeper into the data returned by firebase
+        for (let index in temp) {
+            console.log(index);
+            for (let index2 in temp[index].link) {
+
+                console.log(temp[index].link[index2]);
+            }
+            //console.log(temp[index].link);
+            //test_obj.name=index;
+            /*let new_test_obj = {
+                ...test_obj,
+                name: index
+            }
+            subCat_array.push(new_test_obj);*/
+        }
+
+        return {
+            ...state,
+            test: subCat_array
+        };
     }
     return state;
 };
