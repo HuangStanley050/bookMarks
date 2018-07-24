@@ -142,37 +142,32 @@ const reducer = (state = initialState, action) => {
     else if (action.type === actionTypes.FETCH_SUCCESS) {
         let temp = action.data;
         let subCat_array = [];
-        //this is for one subcategory, the name and the hyperlinks.
 
-        /*let subCat_obj = {
-            name: null,
-            hyperlinks: []
-        };
-        for (let index in temp.link) {
-            console.log(temp.link[index].link);
-            subCat_obj.hyperlinks.push(temp.link[index].link);
-        }
-        */
 
-        let test_obj = {
-            name: null,
-            hyperlinks: []
-        }
+
         //double loop in drill deeper into the data returned by firebase
         for (let index in temp) {
-            console.log(index);
-            for (let index2 in temp[index].link) {
 
-                console.log(temp[index].link[index2]);
+            let test_obj = {
+                name: index,
+                hyperlinks: []
+            };
+            console.log(test_obj);
+            for (let index2 in temp[index].link) {
+                //console.log(index);
+                //console.log(temp[index].link[index2].link);
+                test_obj = {
+                    ...test_obj,
+                    hyperlinks: [...test_obj.hyperlinks, temp[index].link[index2].link]
+                };
+                console.log(test_obj);
             }
-            //console.log(temp[index].link);
-            //test_obj.name=index;
-            /*let new_test_obj = {
-                ...test_obj,
-                name: index
-            }
-            subCat_array.push(new_test_obj);*/
+            subCat_array.push(test_obj);
+
+
         }
+        //console.log(test_obj);
+
 
         return {
             ...state,
@@ -192,3 +187,24 @@ export default reducer;
     hyperlinks:[]
 }
 */
+
+
+//this is for one subcategory, the name and the hyperlinks.
+
+/*let subCat_obj = {
+    name: null,
+    hyperlinks: []
+};
+for (let index in temp.link) {
+    console.log(temp.link[index].link);
+    subCat_obj.hyperlinks.push(temp.link[index].link);
+}
+*/
+
+//console.log(temp[index].link);
+//test_obj.name=index;
+/*let new_test_obj = {
+    ...test_obj,
+    name: index
+}
+subCat_array.push(new_test_obj);*/
