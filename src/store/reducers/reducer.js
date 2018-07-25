@@ -171,7 +171,7 @@ const reducer = (state = initialState, action) => {
 
         return {
             ...state,
-            test: subCat_array
+            es6_category: subCat_array
         };
     }
     return state;

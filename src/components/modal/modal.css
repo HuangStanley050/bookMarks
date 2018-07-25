@@ -29,6 +29,11 @@
     display: block;
 }
 
+.Content ul {
+    padding: 0;
+}
+
 .Content li {
     list-style: none;
+    text-align: center;
 }

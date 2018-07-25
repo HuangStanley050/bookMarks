@@ -19,7 +19,7 @@ export const fetchbookmarks = () => {
         axios.get("https://bookmarks-25986.firebaseio.com/es6.json")
             .then(
                 response => {
-                    //console.log(response.data);
+                    console.log(response);
                     dispatch(fetchSuccess(response.data));
                 }
             )
