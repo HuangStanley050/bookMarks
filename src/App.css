@@ -7,9 +7,14 @@
   padding: 10px;
   border: 2px solid red;
   display: grid;
-  grid-template-areas: "React CSS Node ES6";
+  grid-template-areas: "React CSS Node ES6 Auth";
   grid-gap: 10px;
   text-align: center;
+}
+
+.Auth {
+  grid-area: Auth;
+  border: 1px solid black;
 }
 
 .React {

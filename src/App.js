@@ -4,6 +4,7 @@ import NodeJS from "./containers/node/node";
 import ES6 from "./containers/es6/es6";
 import Style from "./containers/style/style";
 import Modal from "./components/modal/modal";
+import Auth from "./containers/auth/auth";
 import { connect } from "react-redux";
 import { Route, NavLink, withRouter } from "react-router-dom";
 
@@ -20,6 +21,7 @@ class App extends Component {
         <nav className="CSS"><NavLink style={{ textDecoration: 'none' }} to="/style">HTML/CSS</NavLink></nav>
         <nav className="Node"><NavLink style={{ textDecoration: 'none' }} to="/node">Node</NavLink></nav>
         <nav className="ES6"><NavLink style={{ textDecoration: 'none' }} to="/es6">ES6</NavLink></nav>
+        <nav className="Auth"><NavLink style={{ textDecoration: 'none' }} to="/auth">Login</NavLink></nav>
       </div>
       
       <div className="presentation">
@@ -27,6 +29,8 @@ class App extends Component {
         <Route path="/node" component={NodeJS}/>
         <Route path="/es6" component={ES6}/>
         <Route path="/style" component={Style}/>
+        <Route path="/auth" component={Auth}/>
+        
       </div>
       
       </div>
