@@ -8,7 +8,9 @@ const initialState = {
     showModal: false,
     topic: "",
     currentCategory: "",
-    test: null
+    email: "",
+    password: ""
+
 };
 
 const reducer = (state = initialState, action) => {
