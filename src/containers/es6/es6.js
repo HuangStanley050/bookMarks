@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 //import axios from "../../axios-add_category";
 import { connect } from 'react-redux';
-import { addCategory } from "../../store/actions/addcategory";
-import { fetchbookmarks } from "../../store/actions/fetchbookmarks";
+//import { addCategory } from "../../store/actions/addcategory";
+import * as actions from "../../store/actions/index";
 //import { savecategory } from "../../store/actions/savecategory";
 import Categories from "../../components/categories";
 import "./es6.css";
@@ -59,8 +59,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        addCategory: (name, topic) => dispatch(addCategory(name, topic)),
-        fetchbookmarks: () => dispatch(fetchbookmarks())
+        addCategory: (name, topic) => dispatch(actions.addCategory(name, topic)),
+        fetchbookmarks: () => dispatch(actions.fetchbookmarks())
         //save: (name, topic) => dispatch(savecategory(name, topic)) //async function to save to firebase
     };
 }

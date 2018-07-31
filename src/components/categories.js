@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
-import { addSubCategory } from "../store/actions/addsubcategory";
-import { savesubcategory } from "../store/actions/savesubcategory";
-import { toggle } from "../store/actions/toggle";
+//import { addSubCategory } from "../store/actions/addsubcategory";
+import * as actions from "../store/actions/index";
+//import { savesubcategory } from "../store/actions/savesubcategory";
+//import { toggle } from "../store/actions/toggle";
 import "./categories.css";
 
 
@@ -47,9 +48,9 @@ class Categories extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        addSub: (link, category, topic) => dispatch(addSubCategory(link, category, topic)),
-        showLinks: (category, topic) => dispatch(toggle(category, topic)),
-        saveSub: (link, category, topic) => dispatch(savesubcategory(link, category, topic))
+        addSub: (link, category, topic) => dispatch(actions.addSubCategory(link, category, topic)),
+        showLinks: (category, topic) => dispatch(actions.toggle(category, topic)),
+        saveSub: (link, category, topic) => dispatch(actions.savesubcategory(link, category, topic))
     };
 };
 

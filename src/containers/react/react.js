@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
-import { addCategory } from "../../store/actions/addcategory";
+//import { addCategory } from "../../store/actions/addcategory";
+import * as actions from "../../store/actions/index";
 import Categories from "../../components/categories";
 import "./react.css";
 //import Modal from "../../components/modal/modal";
@@ -45,7 +46,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        addCategory: (name, topic) => dispatch(addCategory(name, topic))
+        addCategory: (name, topic) => dispatch(actions.addCategory(name, topic))
     };
 }
 
