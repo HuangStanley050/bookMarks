@@ -53,7 +53,7 @@ class ES6 extends Component {
 }
 const mapStateToProps = state => {
     return {
-        categories: state.es6_category
+        categories: state.book.es6_category
     };
 };
 

@@ -7,9 +7,8 @@ const initialState = {
     react_category: [],
     showModal: false,
     topic: "",
-    currentCategory: "",
-    email: "",
-    password: ""
+    currentCategory: ""
+
 
 };
 

@@ -61,12 +61,12 @@ const Modal = (props) => {
 
 const mapStateToProps = state => {
     return {
-        currentCategory: state.currentCategory,
-        currentTopic: state.topic,
-        sectionES6: state.es6_category,
-        sectionREACT: state.react_category,
-        sectionNODE: state.node_category,
-        sectionSTYLE: state.style_category
+        currentCategory: state.book.currentCategory,
+        currentTopic: state.book.topic,
+        sectionES6: state.book.es6_category,
+        sectionREACT: state.book.react_category,
+        sectionNODE: state.book.node_category,
+        sectionSTYLE: state.book.style_category
     };
 };
 

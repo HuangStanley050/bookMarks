@@ -40,7 +40,7 @@ class ReactKB extends Component {
 
 const mapStateToProps = state => {
     return {
-        categories: state.react_category
+        categories: state.book.react_category
     };
 };
 

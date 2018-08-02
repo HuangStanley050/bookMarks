@@ -37,7 +37,7 @@ class NodeJS extends Component {
 
 const mapStateToProps = state => {
     return {
-        categories: state.node_category
+        categories: state.book.node_category
     };
 };
 

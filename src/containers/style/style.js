@@ -37,7 +37,7 @@ class Style extends Component {
 
 const mapStateToProps = state => {
     return {
-        categories: state.style_category
+        categories: state.book.style_category
     };
 };
 
