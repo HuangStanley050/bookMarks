@@ -6,7 +6,7 @@ import Style from "./containers/style/style";
 import Modal from "./components/modal/modal";
 import Auth from "./containers/auth/auth";
 import { connect } from "react-redux";
-import { Route, NavLink, withRouter } from "react-router-dom";
+import { Route, NavLink, withRouter, Switch } from "react-router-dom";
 
 
 import './App.css';
@@ -25,11 +25,13 @@ class App extends Component {
       </div>
       
       <div className="presentation">
-        <Route path="/react" component={ReactKB}/>
-        <Route path="/node" component={NodeJS}/>
-        <Route path="/es6" component={ES6}/>
-        <Route path="/style" component={Style}/>
-        <Route path="/auth" component={Auth}/>
+        <Switch>
+          <Route path="/auth" component={Auth}/>
+          <Route path="/react" component={ReactKB}/>
+          <Route path="/node" component={NodeJS}/>
+          <Route path="/es6" component={ES6}/>
+          <Route path="/style" component={Style}/>
+        </Switch>
         
       </div>
       

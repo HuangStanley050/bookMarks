@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import "./auth.css";
+import Spinner from "../../components/spinner/spinner";
 import * as actions from "../../store/actions/index";
 
 class Auth extends Component {
@@ -19,8 +20,18 @@ class Auth extends Component {
         this.props.onAuth(this.state.email, this.state.password);
     }
     render() {
+        let errorMessage = null;
+        if (this.props.error) {
+            errorMessage = (
+                <p style={{color:"red"}}>{this.props.error}</p>
+            );
+        }
         return (
+
+
             <div className="Auth_Container">
+                 {this.props.loading?<Spinner/>:null}
+                 {errorMessage}
                  <form className="login" onSubmit={this.formHandle}>
                     <h1 className="login-title">Login/Logout</h1>
                     <input name="email" onChange={this.inputHandle} value={this.state.email} type="text" className="login-input" placeholder="Email Adress" />
@@ -30,9 +41,17 @@ class Auth extends Component {
                 </form>
 
             </div>
+
         );
     }
 }
+
+const mapStateToProps = state => {
+    return {
+        loading: state.auth.loading,
+        error: state.auth.error
+    };
+};
 
 const mapDispatchToProps = dispatch => {
     return {
@@ -40,4 +59,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(null, mapDispatchToProps)(Auth);
+export default connect(mapStateToProps, mapDispatchToProps)(Auth);
