@@ -34,8 +34,10 @@ class ES6 extends Component {
 
 
     render() {
-        return (
-            <div>
+        let content = <h1>Please login</h1>;
+        if (this.props.auth) {
+            content = (
+                <div>
              
              <h1>ES6 Section</h1>
              <input onChange={this.handleInput} value={this.state.input} type="text" placeholder="category to add.."/>
@@ -48,12 +50,17 @@ class ES6 extends Component {
              
             </div>
             </div>
-        );
+            )
+        }
+        return content;
+
+
     }
 }
 const mapStateToProps = state => {
     return {
-        categories: state.book.es6_category
+        categories: state.book.es6_category,
+        auth: state.auth.token
     };
 };
 

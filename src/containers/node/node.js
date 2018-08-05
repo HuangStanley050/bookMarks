@@ -20,8 +20,10 @@ class NodeJS extends Component {
     }
 
     render() {
-        return (
-            <div>
+        let content = <h1>Please login</h1>;
+        if (this.props.auth) {
+            content = (
+                <div>
             <h1>NodeJS</h1>
             <input onChange={this.handleInput} value={this.state.input} type="text" placeholder="category to add.."/>
             <button onClick={()=>this.addCategory()}>Add Category</button>
@@ -31,13 +33,18 @@ class NodeJS extends Component {
              })}
             </div>
             </div>
-        );
+            );
+        }
+        return content;
+
+
     }
 }
 
 const mapStateToProps = state => {
     return {
-        categories: state.book.node_category
+        categories: state.book.node_category,
+        auth: state.auth.token
     };
 };
 

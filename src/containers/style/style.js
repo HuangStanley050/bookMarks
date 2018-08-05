@@ -20,8 +20,10 @@ class Style extends Component {
     }
 
     render() {
-        return (
-            <div>
+        let content = <h1>Please login</h1>;
+        if (this.props.auth) {
+            content = (
+                <div>
             <h1>HTML/CSS</h1>
             <input onChange={this.handleInput} value={this.state.input} type="text" placeholder="category to add.."/>
             <button onClick={()=>this.addCategory()}>Add Category</button>
@@ -31,13 +33,18 @@ class Style extends Component {
              })}
             </div>
             </div>
-        );
+            )
+        }
+        return content;
+
+
     }
 }
 
 const mapStateToProps = state => {
     return {
-        categories: state.book.style_category
+        categories: state.book.style_category,
+        auth: state.auth.token
     };
 };
 
