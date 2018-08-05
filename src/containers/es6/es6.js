@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import * as actions from "../../store/actions/index";
 //import { savecategory } from "../../store/actions/savecategory";
 import Categories from "../../components/categories";
+import Spinner from "../../components/spinner/spinner";
 import "./es6.css";
 
 
@@ -29,16 +30,20 @@ class ES6 extends Component {
     }
 
     componentDidMount() {
-        this.props.fetchbookmarks();
+        if (this.props.auth) { //check if login, if yes then fetch the data
+            this.props.fetchbookmarks();
+        }
     }
 
 
     render() {
         let content = <h1>Please login</h1>;
+        let error = <h2>{this.props.loadError}</h2>;
         if (this.props.auth) {
             content = (
                 <div>
-             
+             {this.props.loading?<Spinner/>:null}
+             {this.props.loadError?error:null}
              <h1>ES6 Section</h1>
              <input onChange={this.handleInput} value={this.state.input} type="text" placeholder="category to add.."/>
              <button onClick={()=>this.addCategory()}>Add Category</button>
@@ -60,7 +65,9 @@ class ES6 extends Component {
 const mapStateToProps = state => {
     return {
         categories: state.book.es6_category,
-        auth: state.auth.token
+        loading: state.book.loading,
+        auth: state.auth.token,
+        loadError: state.book.loadingError
     };
 };
 

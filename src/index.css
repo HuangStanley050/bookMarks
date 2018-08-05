@@ -8,3 +8,27 @@ body {
 input:focus {
   outline: 0;
 }
+
+a {
+  color: #153b77;
+}
+
+/* unvisited link */
+
+a:visited {
+  color: #153b77;
+}
+
+/* visited link */
+
+a:hover {
+  color: #153b77;
+}
+
+/* mouse over link */
+
+a:active {
+  color: #153b77;
+}
+
+/* selected link */

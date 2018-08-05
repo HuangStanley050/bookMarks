@@ -7,6 +7,7 @@ export const SAVE_CATEGORY_FAIL = "SAVE_CATEGORY_FAIL";
 */
 export const FETCH_SUCCESS = "FETCH_SUCCESS";
 export const FETCH_FAIL = "FETCH_FAIL";
+export const FETCH_START = "FETCH_START";
 
 export const AUTH_SUCCESS = "AUTH_SUCCESS";
 export const AUTH_FAIL = "AUTH_FAIL";

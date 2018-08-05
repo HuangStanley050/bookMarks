@@ -7,7 +7,9 @@ const initialState = {
     react_category: [],
     showModal: false,
     topic: "",
-    currentCategory: ""
+    currentCategory: "",
+    loading: false,
+    loadingError: null
 
 
 };
@@ -140,6 +142,12 @@ const reducer = (state = initialState, action) => {
             topic: action.topic
         };
     }
+    else if (action.type === actionTypes.FETCH_START) {
+        return {
+            ...state,
+            loading: true
+        };
+    }
     else if (action.type === actionTypes.FETCH_SUCCESS) {
         let temp = action.data;
         let subCat_array = [];
@@ -172,7 +180,15 @@ const reducer = (state = initialState, action) => {
 
         return {
             ...state,
-            es6_category: subCat_array
+            es6_category: subCat_array,
+            loading: false
+        };
+    }
+    else if (action.type === actionTypes.FETCH_FAIL) {
+        return {
+            ...state,
+            loading: false,
+            loadingError: "Please try refresh again"
         };
     }
     return state;

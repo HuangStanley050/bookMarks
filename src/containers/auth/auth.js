@@ -21,10 +21,14 @@ class Auth extends Component {
     }
     render() {
         let errorMessage = null;
+        let LoginOrLogOut = "Lets Go";
         if (this.props.error) {
             errorMessage = (
                 <p style={{color:"red"}}>{this.props.error}</p>
             );
+        }
+        if (this.props.isLogin) {
+            LoginOrLogOut = "Log Out";
         }
         return (
 
@@ -36,7 +40,7 @@ class Auth extends Component {
                     <h1 className="login-title">Login/Logout</h1>
                     <input name="email" onChange={this.inputHandle} value={this.state.email} type="text" className="login-input" placeholder="Email Adress" />
                     <input name="password" onChange={this.inputHandle} value={this.state.password} type="password" className="login-input" placeholder="Password"/>
-                    <input type="submit" value="Lets Go" className="login-button"/>
+                    <input type="submit" value={LoginOrLogOut} className="login-button"/>
                     
                 </form>
 
@@ -49,7 +53,8 @@ class Auth extends Component {
 const mapStateToProps = state => {
     return {
         loading: state.auth.loading,
-        error: state.auth.error
+        error: state.auth.error,
+        isLogin: state.auth.token
     };
 };
 

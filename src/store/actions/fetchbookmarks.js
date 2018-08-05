@@ -14,8 +14,15 @@ export const fetchFail = () => {
     };
 };
 
+export const fetchStart = () => {
+    return {
+        type: actionTypes.FETCH_START
+    };
+}
+
 export const fetchbookmarks = () => {
     return dispatch => {
+        dispatch(fetchStart());
         axios.get("https://bookmarks-25986.firebaseio.com/es6.json")
             .then(
                 response => {
