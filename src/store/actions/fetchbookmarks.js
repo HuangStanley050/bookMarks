@@ -20,10 +20,10 @@ export const fetchStart = () => {
     };
 }
 
-export const fetchbookmarks = () => {
+export const fetchbookmarks = (token) => {
     return dispatch => {
         dispatch(fetchStart());
-        axios.get("https://bookmarks-25986.firebaseio.com/es6.json")
+        axios.get("https://bookmarks-25986.firebaseio.com/es6.json?auth=" + token)
             .then(
                 response => {
                     console.log(response);
