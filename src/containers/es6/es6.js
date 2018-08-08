@@ -31,7 +31,7 @@ class ES6 extends Component {
 
     componentDidMount() {
         if (this.props.auth) { //check if login, if yes then fetch the data
-            this.props.fetchbookmarks(this.props.auth);
+            this.props.fetchbookmarks(this.props.auth, "es6");
         }
     }
 
@@ -74,7 +74,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         addCategory: (name, topic) => dispatch(actions.addCategory(name, topic)),
-        fetchbookmarks: (token) => dispatch(actions.fetchbookmarks(token))
+        fetchbookmarks: (token, subject) => dispatch(actions.fetchbookmarks(token, subject))
         //save: (name, topic) => dispatch(savecategory(name, topic)) //async function to save to firebase
     };
 }

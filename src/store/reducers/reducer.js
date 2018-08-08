@@ -150,6 +150,8 @@ const reducer = (state = initialState, action) => {
     }
     else if (action.type === actionTypes.FETCH_SUCCESS) {
         let temp = action.data;
+        let subject = action.subject;
+        let bookmark = null;
         let subCat_array = [];
 
 
@@ -175,12 +177,18 @@ const reducer = (state = initialState, action) => {
 
 
         }
-        //console.log(test_obj);
+        //let the reducer know which bookmark array to fill the data into
+        if (subject === "node") {
+            bookmark = "node_category";
+        }
+        else if (subject === "es6") {
+            bookmark = "es6_category";
+        }
 
 
         return {
             ...state,
-            es6_category: subCat_array,
+            [bookmark]: subCat_array,
             loading: false
         };
     }
