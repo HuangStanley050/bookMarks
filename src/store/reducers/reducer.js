@@ -200,6 +200,9 @@ const reducer = (state = initialState, action) => {
             case "react":
                 bookmark = "react_category";
                 break;
+            case "style":
+                bookmark = "style_category";
+                break;
             default:
                 break;
         }
