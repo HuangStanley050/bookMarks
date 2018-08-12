@@ -178,12 +178,32 @@ const reducer = (state = initialState, action) => {
 
         }
         //let the reducer know which bookmark array to fill the data into
-        if (subject === "node") {
+        /*if (subject === "node") {
             bookmark = "node_category";
         }
-        else if (subject === "es6") {
+
+        if (subject === "es6") {
             bookmark = "es6_category";
         }
+        //else if broke the redux hence, I was not able to render from react_category but why?
+        if (subject === "react") {
+            bookmark = "react_category";
+        }*/
+
+        switch (subject) {
+            case "node":
+                bookmark = "node_category";
+                break;
+            case "es6":
+                bookmark = "es6_category";
+                break;
+            case "react":
+                bookmark = "react_category";
+                break;
+            default:
+                break;
+        }
+
 
 
         return {
@@ -205,31 +225,3 @@ const reducer = (state = initialState, action) => {
 
 
 export default reducer;
-
-/*
-{
-    category:"",
-    hyperlinks:[]
-}
-*/
-
-
-//this is for one subcategory, the name and the hyperlinks.
-
-/*let subCat_obj = {
-    name: null,
-    hyperlinks: []
-};
-for (let index in temp.link) {
-    console.log(temp.link[index].link);
-    subCat_obj.hyperlinks.push(temp.link[index].link);
-}
-*/
-
-//console.log(temp[index].link);
-//test_obj.name=index;
-/*let new_test_obj = {
-    ...test_obj,
-    name: index
-}
-subCat_array.push(new_test_obj);*/

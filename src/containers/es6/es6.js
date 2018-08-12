@@ -52,10 +52,10 @@ class ES6 extends Component {
              {this.props.categories.map(key=>{
                  return <Categories topic="es6" key={key.name} category={key.name}/>;
              })}
-             
+           
             </div>
             </div>
-            )
+            );
         }
         return content;
 
