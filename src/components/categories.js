@@ -20,7 +20,7 @@ class Categories extends Component {
         /*if (this.props.topic === 'react') {
             alert("react!!");
         }*/
-        this.props.saveSub(this.state.input, this.props.category, this.props.topic)
+        this.props.saveSub(this.state.input, this.props.category, this.props.topic, this.props.token);
         this.props.addSub(this.state.input, this.props.category, this.props.topic);
         this.setState({ input: "" });
     }
@@ -40,20 +40,20 @@ class Categories extends Component {
     }
 }
 
-/*const mapStateToProps = state => {
+const mapStateToProps = state => {
     return {
-        showModal: state.showModal
+        token: state.auth.token
     };
-}*/
+};
 
 const mapDispatchToProps = dispatch => {
     return {
         addSub: (link, category, topic) => dispatch(actions.addSubCategory(link, category, topic)),
         showLinks: (category, topic) => dispatch(actions.toggle(category, topic)),
-        saveSub: (link, category, topic) => dispatch(actions.savesubcategory(link, category, topic))
+        saveSub: (link, category, topic, token) => dispatch(actions.savesubcategory(link, category, topic, token))
     };
 };
 
-export default connect(null, mapDispatchToProps)(Categories);
+export default connect(mapStateToProps, mapDispatchToProps)(Categories);
 
 //<button onClick={props.clicked}>+</button>
