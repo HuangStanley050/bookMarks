@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
 import "./auth.css";
 import Spinner from "../../components/spinner/spinner";
 import * as actions from "../../store/actions/index";
@@ -22,6 +23,7 @@ class Auth extends Component {
     render() {
         let errorMessage = null;
         let LoginOrLogOut = "Lets Go";
+        let authRedirect = null;
         if (this.props.error) {
             errorMessage = (
                 <p style={{color:"red"}}>{this.props.error}</p>
@@ -29,11 +31,14 @@ class Auth extends Component {
         }
         if (this.props.isLogin) {
             LoginOrLogOut = "Log Out";
+            authRedirect = <Redirect to="/"/>;
         }
+
         return (
 
 
             <div className="Auth_Container">
+                 {authRedirect}
                  {this.props.loading?<Spinner/>:null}
                  {errorMessage}
                  <form className="login" onSubmit={this.formHandle}>

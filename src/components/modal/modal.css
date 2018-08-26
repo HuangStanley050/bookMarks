@@ -36,5 +36,6 @@
 .Content li {
     list-style: none;
     text-align: center;
+    text-decoration: none;
     padding: 2px 0;
 }

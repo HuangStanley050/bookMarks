@@ -5,6 +5,7 @@ import ES6 from "./containers/es6/es6";
 import Style from "./containers/style/style";
 import Modal from "./components/modal/modal";
 import Auth from "./containers/auth/auth";
+import Home from "./components/Home";
 import { connect } from "react-redux";
 import { Route, NavLink, withRouter, Switch } from "react-router-dom";
 
@@ -26,6 +27,7 @@ class App extends Component {
       
       <div className="presentation">
         <Switch>
+          <Route exact path="/" component={Home}/>
           <Route path="/auth" component={Auth}/>
           <Route path="/react" component={ReactKB}/>
           <Route path="/node" component={NodeJS}/>
