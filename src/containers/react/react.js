@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from 'react-redux';
 //import { addCategory } from "../../store/actions/addcategory";
 import * as actions from "../../store/actions/index";
+import * as actionTypes from "../../store/actions/actionTypes";
 import Spinner from "../../components/spinner/spinner";
 import Categories from "../../components/categories";
 import "./react.css";
@@ -24,7 +25,10 @@ class ReactKB extends Component {
 
     componentDidMount() {
         if (this.props.auth) { //check if login, if yes then fetch the data
-            this.props.fetchbookmarks(this.props.auth, "react");
+            if (!this.props.hasFetched) {
+                this.props.fetchbookmarks(this.props.auth, "react");
+                this.props.fetched(actionTypes.REACT);
+            }
         }
     }
 
@@ -63,14 +67,16 @@ const mapStateToProps = state => {
         categories: state.book.react_category,
         auth: state.auth.token,
         loading: state.book.loading,
-        loadError: state.book.loadingError
+        loadError: state.book.loadingError,
+        hasFetched: state.fetch.reactFetched
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
         addCategory: (name, topic) => dispatch(actions.addCategory(name, topic)),
-        fetchbookmarks: (token, subject) => dispatch(actions.fetchbookmarks(token, subject))
+        fetchbookmarks: (token, subject) => dispatch(actions.fetchbookmarks(token, subject)),
+        fetched: (topic) => dispatch(actions.fetched(topic))
     };
 }
 

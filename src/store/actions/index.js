@@ -4,3 +4,4 @@ export { addCategory } from "./addcategory";
 export { addSubCategory } from "./addsubcategory";
 export { savesubcategory } from "./savesubcategory";
 export { toggle } from "./toggle";
+export { fetched } from "./fetch";

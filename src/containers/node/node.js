@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 //import { addCategory } from "../../store/actions/addcategory";
+import * as actionTypes from "../../store/actions/actionTypes";
 import * as actions from "../../store/actions/index";
 import Categories from "../../components/categories";
 import Spinner from "../../components/spinner/spinner";
@@ -22,7 +23,10 @@ class NodeJS extends Component {
 
     componentDidMount() {
         if (this.props.auth) { //check if login, if yes then fetch the data
-            this.props.fetchbookmarks(this.props.auth, "node");
+            if (!this.props.hasFetched) {
+                this.props.fetchbookmarks(this.props.auth, "node");
+                this.props.fetched(actionTypes.NODE);
+            }
         }
     }
 
@@ -56,15 +60,17 @@ const mapStateToProps = state => {
         categories: state.book.node_category,
         auth: state.auth.token,
         loading: state.book.loading,
-        loadError: state.book.loadingError
+        loadError: state.book.loadingError,
+        hasFetched: state.fetch.nodeFetched
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
         addCategory: (name, topic) => dispatch(actions.addCategory(name, topic)),
-        fetchbookmarks: (token, subject) => dispatch(actions.fetchbookmarks(token, subject))
+        fetchbookmarks: (token, subject) => dispatch(actions.fetchbookmarks(token, subject)),
+        fetched: (topic) => dispatch(actions.fetched(topic))
     };
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(NodeJS);

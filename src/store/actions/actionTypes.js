@@ -12,3 +12,8 @@ export const FETCH_START = "FETCH_START";
 export const AUTH_SUCCESS = "AUTH_SUCCESS";
 export const AUTH_FAIL = "AUTH_FAIL";
 export const AUTH_START = "AUTH_START";
+
+export const ES6 = "ES6";
+export const NODE = "NODE";
+export const REACT = "REACT";
+export const STYLE = "STYLE";

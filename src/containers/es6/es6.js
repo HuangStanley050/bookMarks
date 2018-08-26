@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { connect } from 'react-redux';
 //import { addCategory } from "../../store/actions/addcategory";
 import * as actions from "../../store/actions/index";
+import * as actionTypes from "../../store/actions/actionTypes";
 //import { savecategory } from "../../store/actions/savecategory";
 import Categories from "../../components/categories";
 import Spinner from "../../components/spinner/spinner";
@@ -31,7 +32,10 @@ class ES6 extends Component {
 
     componentDidMount() {
         if (this.props.auth) { //check if login, if yes then fetch the data
-            this.props.fetchbookmarks(this.props.auth, "es6");
+            if (!this.props.hasFetched) {
+                this.props.fetchbookmarks(this.props.auth, "es6");
+                this.props.fetched(actionTypes.ES6);
+            }
         }
     }
 
@@ -67,15 +71,16 @@ const mapStateToProps = state => {
         categories: state.book.es6_category,
         loading: state.book.loading,
         auth: state.auth.token,
-        loadError: state.book.loadingError
+        loadError: state.book.loadingError,
+        hasFetched: state.fetch.es6Fetched
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
         addCategory: (name, topic) => dispatch(actions.addCategory(name, topic)),
-        fetchbookmarks: (token, subject) => dispatch(actions.fetchbookmarks(token, subject))
-        //save: (name, topic) => dispatch(savecategory(name, topic)) //async function to save to firebase
+        fetchbookmarks: (token, subject) => dispatch(actions.fetchbookmarks(token, subject)),
+        fetched: (topic) => dispatch(actions.fetched(topic))
     };
 }
 
