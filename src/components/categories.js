@@ -32,8 +32,8 @@ class Categories extends Component {
             <div className="Categories">
             <h3>{this.props.category}</h3>
             <input onChange={this.handleInput} value={this.state.input} type="text" placeholder="links to add.."/>
-            <button onClick={this.addSubCategory}>Add Link</button>
-            <button onClick={()=>this.props.showLinks(this.props.category,this.props.topic)}>Show Links</button>
+            <button className="waves-effect waves-light btn"onClick={this.addSubCategory}>Add Link</button>
+            <button className="waves-effect waves-light btn"onClick={()=>this.props.showLinks(this.props.category,this.props.topic)}>Show Links</button>
         
         </div>
         );

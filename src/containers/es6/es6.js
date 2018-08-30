@@ -50,7 +50,7 @@ class ES6 extends Component {
              {this.props.loadError?error:null}
              <h1>ES6 Section</h1>
              <input onChange={this.handleInput} value={this.state.input} type="text" placeholder="category to add.."/>
-             <button onClick={()=>this.addCategory()}>Add Category</button>
+             <button className="waves-effect waves-light btn" onClick={()=>this.addCategory()}>Add Category</button>
             <div className="ES6_Container">
              
              {this.props.categories.map(key=>{
